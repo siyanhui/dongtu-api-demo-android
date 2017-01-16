@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@color/white"
+              android:orientation="vertical">
+
+    <include layout="@layout/title_bar"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@color/gray_d8"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:padding="10dp">
+
+        <com.siyanhui.mojif.bqss_demo.ui.widget.BQSSEditText
+            android:id="@+id/bqss_editview"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/shape_edittext_full"
+            android:drawableRight="@mipmap/icon_text_delete"
+            android:hint="@string/search_a_sticker"
+            android:drawablePadding="3dp"
+            android:paddingLeft="6dp"
+            android:textColor="@color/black"
+            android:textColorHint="@color/gray_97"
+            android:textSize="16sp"/>
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/gray_97"/>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <GridView
+            android:id="@+id/home_gridview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/gray_f2"
+            android:paddingTop="10dp"></GridView>
+
+        <include
+            android:id="@+id/search_history_view"
+            layout="@layout/search_history_item"
+            android:visibility="gone"/>
+    </FrameLayout>
+</LinearLayout>

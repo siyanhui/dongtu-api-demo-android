@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#99878787"
+                android:clickable="true"
+                android:orientation="vertical">
+    <LinearLayout android:layout_width="250dp"
+                  android:layout_height="250dp"
+                  android:layout_centerInParent="true"
+                  android:background="@color/white"
+                  android:orientation="vertical">
+        <LinearLayout android:layout_width="match_parent"
+                      android:layout_height="0dp"
+                      android:layout_weight="4"
+                      android:orientation="vertical">
+            <TextView android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:layout_marginLeft="10dp"
+                      android:layout_marginTop="10dp"
+                      android:text="@string/preview_sticker"
+                      android:textColor="@color/gray_97"
+                      android:textSize="18sp"/>
+            <RelativeLayout android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+                <com.facebook.drawee.view.SimpleDraweeView
+                    android:id="@+id/preview_img"
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:layout_centerInParent="true"/>
+            </RelativeLayout>
+        </LinearLayout>
+        <View android:layout_width="match_parent"
+              android:layout_height="1dp"
+              android:background="@color/gray_97"/>
+        <LinearLayout android:layout_width="match_parent"
+                      android:layout_height="0dp"
+                      android:layout_weight="1"
+                      android:orientation="horizontal">
+            <RelativeLayout android:id="@+id/cancel_btn"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1">
+                <TextView android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:layout_centerInParent="true"
+                          android:text="@string/cancel"
+                          android:textColor="@color/gray_97"/>
+            </RelativeLayout>
+            <View android:layout_width="1dp"
+                  android:layout_height="match_parent"
+                  android:background="@color/gray_97"/>
+            <RelativeLayout android:id="@+id/send_btn"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1">
+                <TextView android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:layout_centerInParent="true"
+                          android:text="@string/send"
+                          android:textColor="@color/blue_0B"/>
+            </RelativeLayout>
+        </LinearLayout>
+    </LinearLayout>
+</RelativeLayout>

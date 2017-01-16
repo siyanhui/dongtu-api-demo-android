@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="bqmm_chat_item_avatar">
+        <item name="android:layout_width">52dp</item>
+        <item name="android:layout_height">52dp</item>
+        <item name="android:layout_alignParentTop">true</item>
+        <item name="android:focusable">false</item>
+        <item name="android:layout_marginTop">5dp</item>
+        <item name="android:src">@mipmap/user_avatar</item>
+        <item name="android:scaleType">centerCrop</item>
+    </style>
+</resources>
