@@ -2,7 +2,6 @@ package com.siyanhui.mojif.bqss_demo.api;
 
 import com.siyanhui.mojif.bqss_demo.model.BQSSHotTag;
 import com.siyanhui.mojif.bqss_demo.model.BQSSWebSticker;
-
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -35,13 +34,14 @@ public class BQSSSearchApi extends BQSSBaseApi {
                 BQSSApiResponseObject responseObject = new BQSSApiResponseObject();
                 try {
                     JSONObject jsonObject = new JSONObject(t);
-                    responseObject.setDatas(getStickerListFromData(jsonObject.optJSONArray("emojis")));
+                    responseObject.setDatas(getStickerListFromData(jsonObject.getJSONArray("emojis")));
                     int count = jsonObject.getInt("count");
                     responseObject.setCount(count);
+                    callback.onSuccess(responseObject);
                 } catch (JSONException e) {
                     e.printStackTrace();
+                    callback.onError(e.getLocalizedMessage());
                 }
-                callback.onSuccess(responseObject);
             }
 
             @Override
@@ -68,13 +68,14 @@ public class BQSSSearchApi extends BQSSBaseApi {
                 BQSSApiResponseObject responseObject = new BQSSApiResponseObject();
                 try {
                     JSONObject jsonObject = new JSONObject(t);
-                    responseObject.setDatas(getStickerListFromData(jsonObject.optJSONArray("emojis")));
+                    responseObject.setDatas(getStickerListFromData(jsonObject.getJSONArray("emojis")));
                     int count = jsonObject.getInt("count");
                     responseObject.setCount(count);
+                    callback.onSuccess(responseObject);
                 } catch (JSONException e) {
                     e.printStackTrace();
+                    callback.onError(e.getLocalizedMessage());
                 }
-                callback.onSuccess(responseObject);
             }
 
             @Override
@@ -97,11 +98,12 @@ public class BQSSSearchApi extends BQSSBaseApi {
                 BQSSApiResponseObject responseObject = new BQSSApiResponseObject();
                 try {
                     JSONObject jsonObject = new JSONObject(t);
-                    responseObject.setDatas(getHotTagsFromData(jsonObject.optJSONArray("data_list")));
+                    responseObject.setDatas(getHotTagsFromData(jsonObject.getJSONArray("data_list")));
+                    callback.onSuccess(responseObject);
                 } catch (JSONException e) {
                     e.printStackTrace();
+                    callback.onError(e.getLocalizedMessage());
                 }
-                callback.onSuccess(responseObject);
             }
 
             @Override
@@ -112,25 +114,23 @@ public class BQSSSearchApi extends BQSSBaseApi {
     }
 
     private static List<BQSSHotTag> getHotTagsFromData(JSONArray jsonArray) throws JSONException {
-        if (jsonArray == null) {
-            return null;
-        }
         List<BQSSHotTag> BQSSHotTagList = new ArrayList<>();
-        for (int i = 0; i < jsonArray.length(); i++) {
-            BQSSHotTag BQSSHotTag = new BQSSHotTag(jsonArray.getJSONObject(i));
-            BQSSHotTagList.add(BQSSHotTag);
+        if (jsonArray != null) {
+            for (int i = 0; i < jsonArray.length(); i++) {
+                BQSSHotTag BQSSHotTag = new BQSSHotTag(jsonArray.getJSONObject(i));
+                BQSSHotTagList.add(BQSSHotTag);
+            }
         }
         return BQSSHotTagList;
     }
 
     private static List<BQSSWebSticker> getStickerListFromData(JSONArray jsonArray) throws JSONException {
-        if (jsonArray == null) {
-            return null;
-        }
         List<BQSSWebSticker> BQSSWebStickerList = new ArrayList<>();
-        for (int i = 0; i < jsonArray.length(); i++) {
-            BQSSWebSticker BQSSWebSticker = new BQSSWebSticker(jsonArray.getJSONObject(i));
-            BQSSWebStickerList.add(BQSSWebSticker);
+        if (jsonArray != null) {
+            for (int i = 0; i < jsonArray.length(); i++) {
+                BQSSWebSticker BQSSWebSticker = new BQSSWebSticker(jsonArray.getJSONObject(i));
+                BQSSWebStickerList.add(BQSSWebSticker);
+            }
         }
         return BQSSWebStickerList;
     }

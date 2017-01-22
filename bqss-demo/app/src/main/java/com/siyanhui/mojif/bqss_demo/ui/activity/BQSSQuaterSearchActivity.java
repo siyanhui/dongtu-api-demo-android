@@ -15,15 +15,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.HorizontalScrollView;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.ListView;
-import android.widget.TextView;
-import android.widget.Toast;
-
+import android.widget.*;
 import com.facebook.drawee.backends.pipeline.Fresco;
 import com.facebook.drawee.drawable.ScalingUtils;
 import com.facebook.drawee.generic.GenericDraweeHierarchy;
@@ -261,8 +253,9 @@ public class BQSSQuaterSearchActivity extends Activity {
                     message.arg1 = SUCCESS;
                     message.arg2 = currentPage;
                     message.obj = result.getDatas();
-                    if (weakReference.get() != null)
-                        weakReference.get().mHandler.sendMessage(message);
+                    BQSSQuaterSearchActivity activity = weakReference.get();
+                    if (activity != null)
+                        activity.mHandler.sendMessage(message);
                     if (result.getDatas().size() == BQSSConstants.LOADSIZE && currentPage < 5) {
                         needLoadMore = true;
                         currentPage++;
@@ -276,8 +269,9 @@ public class BQSSQuaterSearchActivity extends Activity {
                     Message message = Message.obtain();
                     message.arg1 = ERROR;
                     message.obj = errorInfo;
-                    if (weakReference.get() != null)
-                        weakReference.get().mHandler.sendMessage(message);
+                    BQSSQuaterSearchActivity activity = weakReference.get();
+                    if (activity != null)
+                        activity.mHandler.sendMessage(message);
                 }
             });
 
@@ -291,8 +285,9 @@ public class BQSSQuaterSearchActivity extends Activity {
                     message.arg1 = SUCCESS;
                     message.arg2 = currentPage;
                     message.obj = result.getDatas();
-                    if (weakReference.get() != null)
-                        weakReference.get().mHandler.sendMessage(message);
+                    BQSSQuaterSearchActivity activity = weakReference.get();
+                    if (activity != null)
+                        activity.mHandler.sendMessage(message);
                     if (result.getDatas().size() == BQSSConstants.LOADSIZE) {
                         needLoadMore = true;
                         currentPage++;
@@ -306,8 +301,9 @@ public class BQSSQuaterSearchActivity extends Activity {
                     Message message = Message.obtain();
                     message.arg1 = ERROR;
                     message.obj = errorInfo;
-                    if (weakReference.get() != null)
-                        weakReference.get().mHandler.sendMessage(message);
+                    BQSSQuaterSearchActivity activity = weakReference.get();
+                    if (activity != null)
+                        activity.mHandler.sendMessage(message);
                 }
             });
         }
