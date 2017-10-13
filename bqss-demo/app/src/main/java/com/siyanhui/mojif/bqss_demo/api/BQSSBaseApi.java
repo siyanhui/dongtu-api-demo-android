@@ -17,7 +17,7 @@ import java.util.Map;
  */
 
 public class BQSSBaseApi {
-    public static final String API_BASE = "http://open-api.biaoqingmm.com/open-api";
+    public static final String API_BASE = "http://open-api.dongtu.com:8081/open-api/";
 
     public static void accessGetApi(String apiName, Map<String, String> params, BQSSNetworkManager.ResultCallback callback) {
         try {
