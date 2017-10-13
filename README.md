@@ -16,7 +16,7 @@
 
 # API
 
-生产API地址为：http://open-api.biaoqingmm.com/open-api
+生产API地址为：http://open-api.dongtu.com:8081/open-api/
 
 使用到的API有三个：
 
@@ -24,7 +24,7 @@
 - 流行表情：trending
 - 搜索：   emojis/net/search
 
-API文档详见 http://open.biaoqingmm.com/doc/rest/search/
+API文档详见 http://api-doc.dongtu.com/dongtu/
 
 # demo主要类介绍
 
